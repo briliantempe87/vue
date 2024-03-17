@@ -22,7 +22,7 @@
 import PriceHarga from "./bajing-balap.vue"
     export default {
         name: 'produk-list',
-        component: {
+        components: {
             PriceHarga
         },
         props: ['products', 'maximum'],
