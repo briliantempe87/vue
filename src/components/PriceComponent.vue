@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    
+    name:'price-component',
     props: {
         value: Number,
         prefix: {

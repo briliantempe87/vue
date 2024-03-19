@@ -2,7 +2,7 @@
     <transition-group name="fade" tag="div" @beforeEnter="before" @enter="enter" @leave="leave">
         <div class="row d-none mb-3 align-items-center" v-for="(item, index) in showItem" :key="item.id"  :data-index="index">
         <div class="col-1 m-auto">
-            <button class="btn btn-info" v-on:click="$emit('add', item)">+</button>
+            <button class="btn btn-info" v-on:click="$emit('add-item', item)">+</button>
         </div>
         <div class="col-sm-4">
             <img :src="item.image" :alt="item.name" class="img-fluid d-block">
@@ -11,7 +11,7 @@
                 <h3 class="text-info">{{ item.name }}</h3>
                 <p class="mb-0">{{ item.description }}</p>
                 <div class="h5 float-right">
-                    <price-harga :value="Number(item.price)"></price-harga>
+                    <price-component :value="Number(item.price)"></price-component>
                 </div>
             </div>
         </div>
@@ -19,18 +19,18 @@
 </template>
 
 <script>
-import PriceHarga from "./bajing-balap.vue"
+import PriceComponent from "./PriceComponent"
     export default {
         name: 'produk-list',
         components: {
-            PriceHarga
+            PriceComponent
         },
         props: ['products', 'maximum'],
         computed: {
             showItem: function() {
                 let max = this.maximum;
                 return this.products.filter(function (item) {
-                    return item.price <= max
+                    return Math.trunc(item.price) <= max
                 })
             }
         },
