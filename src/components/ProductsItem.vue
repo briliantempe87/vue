@@ -1,8 +1,10 @@
 <template>
-<h1>IDShop</h1>
+   <div>
+    <h1>IDShop</h1>
     <navbar-component :cart="cart" :cartQty="cartQty" :cartTotal="cartTotal" @toggle-slide="toggleSlider" @delete-item="deleteItem"></navbar-component>
     <price-slider :sliderStatus="sliderStatus" :maximum.sync="maximum"></price-slider>
     <product-list :products="products" :maximum="maximum" @add-item="addItem"></product-list>
+   </div>
 </template>
 
 <script>
